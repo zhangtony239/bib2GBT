@@ -201,14 +201,24 @@ def mainProscess(bibFile: str) -> list:
     return fileBGT
 
 
-if __name__ == "__main__":
-    bibFile = sys.argv[1]
-    # bibFile = input("bibtex file:\r\n")
+def main(argv: list | None = None) -> None:
+    import argparse
 
-    fileBGT = mainProscess(bibFile)
+    parser = argparse.ArgumentParser(
+        prog="bib2gbt",
+        description="Convert a BibTeX (.bib) file to GB/T 7714 style references."
+    )
+    parser.add_argument("bibfile", help="path to the .bib file to convert")
+    args = parser.parse_args(argv)
+
+    fileBGT = mainProscess(args.bibfile)
     _count = 1
     for l in fileBGT:
         if fileBGT.__len__() == 1: print(l)
         else:
             print(f'[{_count}]', l)
             _count += 1
+
+
+if __name__ == "__main__":
+    main()
