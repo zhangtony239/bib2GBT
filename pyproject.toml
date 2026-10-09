@@ -1,6 +1,6 @@
 [project]
 name = "bib2gbt"
-version = "0.1.0"
+version = "0.1.1"
 description = "Convert BibTeX references to GB/T 7714 style ([J]/[D]/[C]/[N] etc.)"
 readme = "README.md"
 requires-python = ">=3.12"
